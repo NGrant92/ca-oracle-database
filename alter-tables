@@ -1,0 +1,5 @@
+ALTER TABLE gg_team
+ADD CONSTRAINT tm_evnt_id_fk FOREIGN KEY (event_id) REFERENCES event(event_id);
+
+ALTER TABLE player_hero
+ADD CONSTRAINT plr_hr_hr_stat_fk FOREIGN KEY (hero_stats_id) REFERENCES hero_stats(stats_id);
