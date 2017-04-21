@@ -45,18 +45,6 @@ INTO gg_team VALUES ('Renegades', 'https://www.facebook.com/TeamRNG/', 'https://
 SELECT * FROM dual;
 
 INSERT ALL
-INTO gg_team_history VALUES ('Harbleu', 'Rogue', '01/06/2016', '09/21/2016')
-INTO gg_team_history VALUES ('Harbleu', 'EnVyus', '02/20/2016', '05/28/2016')
-INTO gg_team_history VALUES ('iddqd', 'EnVyus', '04/04/2016', '11/16/2016')
-INTO gg_team_history VALUES ('SoOn', 'NRG', '07/01/2016', '01/14/2017')
-INTO gg_team_history VALUES ('INTERNETHULK', 'Rogue', '06/22/016', '02/02/2017')
-INTO gg_team_history VALUES ('Seagull', 'Rogue', '03/20/2016', '07/15/2016')
-INTO gg_team_history VALUES ('NiCO', 'EnVyus', '05/22/2016', '12/20/2016')
-INTO gg_team_history VALUES ('HarryHook', 'NRG', '04/11/2016', '01/02/2017')
-INTO gg_team_history VALUES ('HarryHook', 'Rogue', '02/22/2016', '03/02/2016')
-SELECT * FROM dual;
-
-INSERT ALL
 INTO gg_player VALUES ('Taimou', 'taimouow@gmail.com', 'EnVyus', 'https://www.facebook.com/OFFICIALtaimou/', 'https://twitter.com/EnVy_Taimou', 'https://www.youtube.com/user/Taimouu', 'https://www.twitch.tv/taimoutv')
 INTO gg_player VALUES ('HarryHook', 'harryhookow@gmail.com', 'EnVyus', null, 'https://twitter.com/envy_harryhook', null, 'https://www.twitch.tv/harryhook')
 INTO gg_player VALUES ('cocco', 'coccoow@gmail.com', 'EnVyus', null, 'https://twitter.com/EnVy_Taimou', null, 'https://www.twitch.tv/cocco')
@@ -80,8 +68,48 @@ INTO gg_player VALUES ('Nyaves', 'nyaves93@gmail.com', null, null, null, 'https:
 INTO gg_player VALUES ('UnhappyMango', 'mango-93@gmail.com', null, null, null, null, null)
 INTO gg_player VALUES ('tictacz', 'tictacz@gmail.com', null, null, null, null, null)
 INTO gg_player VALUES ('Mendokusaii', 'mendojo-ow@gmail.com', null, null, 'https://twitter.com/mendokusaii', 'https://www.youtube.com/channel/UCg9bCZl8859x6QrSfGbdOnw', 'https://www.twitch.tv/mendokusaii')
+INTO gg_player VALUES ('BloodyMonday', 'mr-monday@gmail.com', null, null, null, null, null)
 INTO gg_player VALUES ('Frozen', 'frozen@gmail.com', null, null, null, null, null)
 INTO gg_player VALUES ('Kephrii', 'kephkeph@gmail.com', null, null, 'https://twitter.com/Kephrii', 'https://www.youtube.com/user/Kephri1', 'https://www.twitch.tv/kephrii')
+SELECT * FROM dual;
+
+INSERT ALL
+INTO gg_team_history VALUES ('Harbleu', 'Rogue', '01/06/2016', '09/21/2016')
+INTO gg_team_history VALUES ('Harbleu', 'EnVyus', '02/20/2016', '05/28/2016')
+INTO gg_team_history VALUES ('iddqd', 'EnVyus', '04/04/2016', '11/16/2016')
+INTO gg_team_history VALUES ('SoOn', 'NRG', '07/01/2016', '01/14/2017')
+INTO gg_team_history VALUES ('INTERNETHULK', 'Rogue', '06/22/016', '02/02/2017')
+INTO gg_team_history VALUES ('Seagull', 'Rogue', '03/20/2016', '07/15/2016')
+INTO gg_team_history VALUES ('NiCO', 'EnVyus', '05/22/2016', '12/20/2016')
+INTO gg_team_history VALUES ('HarryHook', 'NRG', '04/11/2016', '01/02/2017')
+INTO gg_team_history VALUES ('HarryHook', 'Rogue', '02/22/2016', '03/02/2016')
+SELECT * FROM dual;
+
+INSERT ALL
+INTO gg_hero_stats VALUES (1, 'Genji')
+INTO gg_hero_stats VALUES (2, 'McCree')
+INTO gg_hero_stats VALUES (3, 'Pharah')
+INTO gg_hero_stats VALUES (4, 'Reaper')
+INTO gg_hero_stats VALUES (5, 'Soldier: 76')
+INTO gg_hero_stats VALUES (6, 'Sombra')
+INTO gg_hero_stats VALUES (7, 'Tracer')
+INTO gg_hero_stats VALUES (8, 'Bastion')
+INTO gg_hero_stats VALUES (9, 'Hanzo')
+INTO gg_hero_stats VALUES (10, 'Junkrat')
+INTO gg_hero_stats VALUES (11, 'Mei')
+INTO gg_hero_stats VALUES (12, 'Torbjorn')
+INTO gg_hero_stats VALUES (13, 'Widowmaker')
+INTO gg_hero_stats VALUES (14, 'D.Va')
+INTO gg_hero_stats VALUES (15, 'Orisa')
+INTO gg_hero_stats VALUES (16, 'Reinhardt')
+INTO gg_hero_stats VALUES (17, 'Roadhog')
+INTO gg_hero_stats VALUES (18, 'Winston')
+INTO gg_hero_stats VALUES (19, 'Zarya')
+INTO gg_hero_stats VALUES (20, 'Ana')
+INTO gg_hero_stats VALUES (21, 'Lucio')
+INTO gg_hero_stats VALUES (22, 'Mercy')
+INTO gg_hero_stats VALUES (23, 'Symmetra')
+INTO gg_hero_stats VALUES (24, 'Zenyatta')
 SELECT * FROM dual;
 
 INSERT ALL 
@@ -138,33 +166,6 @@ INTO gg_player_hero VALUES ('Nyaves', 'Mercy', 400, 950, 2000, 10450, 200, 88, 2
 INTO gg_player_hero VALUES ('UnhappyMango', 'Mercy', 200, 400, 0, 10000, 300, 301, 22, 0)
 INTO gg_player_hero VALUES ('tictacz', 'Genji', 2800, 2700, 1004200, 0, 320, 60, 1, 0)
 INTO gg_player_hero VALUES ('BloodyMonday', 'Junkrat', 1300, 1400, 7200, 0, 200, 230, 10, 0)
-SELECT * FROM dual;
-
-INSERT ALL
-INTO gg_hero_stats VALUES (1, 'Genji')
-INTO gg_hero_stats VALUES (2, 'McCree')
-INTO gg_hero_stats VALUES (3, 'Pharah')
-INTO gg_hero_stats VALUES (4, 'Reaper')
-INTO gg_hero_stats VALUES (5, 'Soldier: 76')
-INTO gg_hero_stats VALUES (6, 'Sombra')
-INTO gg_hero_stats VALUES (7, 'Tracer')
-INTO gg_hero_stats VALUES (8, 'Bastion')
-INTO gg_hero_stats VALUES (9, 'Hanzo')
-INTO gg_hero_stats VALUES (10, 'Junkrat')
-INTO gg_hero_stats VALUES (11, 'Mei')
-INTO gg_hero_stats VALUES (12, 'Torbjorn')
-INTO gg_hero_stats VALUES (13, 'Widowmaker')
-INTO gg_hero_stats VALUES (14, 'D.Va')
-INTO gg_hero_stats VALUES (15, 'Orisa')
-INTO gg_hero_stats VALUES (16, 'Reinhardt')
-INTO gg_hero_stats VALUES (17, 'Roadhog')
-INTO gg_hero_stats VALUES (18, 'Winston')
-INTO gg_hero_stats VALUES (19, 'Zarya')
-INTO gg_hero_stats VALUES (20, 'Ana')
-INTO gg_hero_stats VALUES (21, 'Lucio')
-INTO gg_hero_stats VALUES (22, 'Mercy')
-INTO gg_hero_stats VALUES (23, 'Symmetra')
-INTO gg_hero_stats VALUES (24, 'Zenyatta')
 SELECT * FROM dual;
 
 INSERT ALL
