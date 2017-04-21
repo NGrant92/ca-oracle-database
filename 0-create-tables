@@ -17,7 +17,7 @@ CREATE TABLE gg_team
 	t_facebook VARCHAR2(60),
 	t_twitter	 VARCHAR2(60),
 	t_youtube	 VARCHAR2(60),
-	t_website	 VARCHAR2(60) CONSTRAINT tm_tm_web_uk UNIQUE(t_website),
+	t_website	 VARCHAR2(60) CONSTRAINT tm_tm_web_uk UNIQUE,
 	event_id	 NUMBER(4,0)
 );
 
@@ -25,27 +25,30 @@ CREATE TABLE gg_player
 (
 	username VARCHAR2(25) CONSTRAINT plr_usnm_pk PRIMARY KEY,
 	email 	 VARCHAR2(30) NOT NULL,
-	team_id  VARCHAR2(25) CONSTRAINT plr_tm_fk REFERENCES team(team_name) ON DELETE SET NULL,
+	team_id  VARCHAR2(25),
 	p_facebook VARCHAR2(50),
 	p_twitter	 VARCHAR2(50),
 	p_youtube	 VARCHAR2(50),
-	p_twitch	 VARCHAR2(50),
+	p_twitch	 VARCHAR2(50)
 );
+
 
 CREATE TABLE gg_team_history
 (
-	username  VARCHAR2(25) NOT NULL CONSTRAINT tm_hist_usnm_fk REFERENCES player(username) ON DELETE CASCADE,
-	team_name VARCHAR2(25) NOT NULL CONSTRAINT tm_hist_nm_fk REFERENCES team(team_name),
+	username  VARCHAR2(25),
+	team_name VARCHAR2(25),
 	start_date DATE NOT NULL,
-	end_date   DATE NOT NULL CONSTRAINT tm_hist_st_end_chk CHECK(end_date > start_date),
-	
+	end_date   DATE NOT NULL,
+
+	CONSTRAINT tm_hist_st_end_chk CHECK(end_date > start_date),
 	CONSTRAINT tm_hist_tm_nm_usrnm_pk PRIMARY KEY (username, team_name)
 );
 
+
 CREATE TABLE gg_player_hero
 (
-	username VARCHAR2(25) NOT NULL CONSTRAINT plr_hr_usnm_fk REFERENCES player(username) ON DELETE CASCADE,
-	name	 VARCHAR2(15) NOT NULL CONSTRAINT plr_hr_nm_fk REFERENCES hero(name) ON DELETE CASCADE,
+	username VARCHAR2(25),
+	name	 VARCHAR2(15),
 	eliminations NUMBER(6,0) NOT NULL,
 	deaths 		 NUMBER(6,0) NOT NULL,
 	damage		 NUMBER(10,0) NOT NULL,
@@ -61,7 +64,7 @@ CREATE TABLE gg_player_hero
 CREATE TABLE gg_hero_stats
 (
 	stats_id NUMBER(3,0) CONSTRAINT hr_stat_id_pk PRIMARY KEY,
-	name	 VARCHAR2(15) NOT NULL CONSTRAINT hr_stat_nm_fk REFERENCES hero(name) ON DELETE CASCADE
+	name	 VARCHAR2(15)
 );
 
 CREATE TABLE gg_event
@@ -80,14 +83,14 @@ CREATE TABLE gg_event
     third_prize      VARCHAR2(25) NOT NULL,
 
     CONSTRAINT evnt_typ_chk CHECK(
-        (event_type = 'Lan' AND venue IS NOT NULL AND county IS NOT NULL AND country IS NOT NULL)
+        (event_type = 'Lan' AND venue IS NOT NULL AND county IS NOT NULL AND country IS NOT NULL AND server_region IS NULL)
         OR
-        (event_type = 'Online' AND server_region IS NOT NULL)
+        (event_type = 'Online' AND server_region IS NOT NULL AND venue IS NULL AND county IS NULL AND country IS NULL)
         )
 );
- AUTO_INCREMENT
+--AUTO_INCREMENT
 
- CREATE TABLE gg_map
+CREATE TABLE gg_map
 (
 	name VARCHAR2(30) CONSTRAINT mp_nm_pk PRIMARY KEY,
 	location VARCHAR2(30) NOT NULL,
@@ -98,26 +101,27 @@ CREATE TABLE gg_event
 
 CREATE TABLE gg_event_map
 (
-	event_id NUMBER(4,0) NOT NULL CONSTRAINT evnt_mp_evnt_id_fk REFERENCES gg_event(event_id),
-	map_name VARCHAR2(30) NOT NULL CONSTRAINT evnt_mp_mp_nm_fk REFERENCES gg_map(name),
+	event_id NUMBER(4,0),
+	map_name VARCHAR2(30),
 
 	CONSTRAINT evnt_mp_nm_id_pk PRIMARY KEY(event_id, map_name)
 );
 
 CREATE TABLE gg_rank
 (
-	rank_id NUMBER(7,0) NOT NULL CONSTRAINT rnk_id_pk PRIMARY KEY,
-	rank_player VARCHAR2(25) NOT NULL CONSTRAINT rnk_plr_nm_fk REFERENCES player(username),
-	date_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	rank_id NUMBER(7,0) CONSTRAINT rnk_id_pk PRIMARY KEY,
+	rank_player VARCHAR2(25) NOT NULL,
+	date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	rank NUMBER(4,0) NOT NULL
 
 );
-	is_current NUMBER(1,0) NOT NULL CONSTRAINT rnk_curr_chk CHECK(is_current = 0 OR is_current = 1)
+
+--is_current NUMBER(1,0) NOT NULL CONSTRAINT rnk_curr_chk CHECK(is_current = 0 OR is_current = 1)
 
 CREATE TABLE gg_rank_history
 (
-	rank_id NUMBER(7,0) NOT NULL CONSTRAINT rnk_id_pk PRIMARY KEY,
-	rank_player VARCHAR2(25) NOT NULL CONSTRAINT rnk_plr_nm_fk REFERENCES player(username),
-	date_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	rank_id NUMBER(7,0) CONSTRAINT rnk_his_id_pk PRIMARY KEY,
+	rank_player VARCHAR2(25) NOT NULL,
+	date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	rank NUMBER(4,0) NOT NULL
 );
