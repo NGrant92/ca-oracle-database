@@ -29,7 +29,7 @@ ALTER TABLE gg_event_map
 ADD CONSTRAINT evnt_mp_mp_nm_fk FOREIGN KEY (map_name) REFERENCES gg_map(name);
 
 ALTER TABLE gg_rank
-ADD CONSTRAINT rnk_plr_nm_fk FOREIGN KEY (rank_player) REFERENCES gg_player(username);
+ADD CONSTRAINT rnk_plr_nm_fk FOREIGN KEY (rank_player) REFERENCES gg_player(username) ON DELETE CASCADE;
 
 ALTER TABLE gg_rank_history
-ADD CONSTRAINT rnk_his_plr_nm_fk FOREIGN KEY (rank_player) REFERENCES gg_player(username);
+ADD CONSTRAINT rnk_his_plr_nm_fk FOREIGN KEY (rank_player) REFERENCES gg_player(username) ON DELETE CASCADE;

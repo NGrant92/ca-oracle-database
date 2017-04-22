@@ -110,10 +110,11 @@ CREATE TABLE gg_event_map
 CREATE TABLE gg_rank
 (
 	rank_id NUMBER(7,0) CONSTRAINT rnk_id_pk PRIMARY KEY,
-	rank_player VARCHAR2(25) NOT NULL,
+	rank_player VARCHAR2(25) NOT NULL CONSTRAINT rnk_plr_uk UNIQUE,
+	rank NUMBER(4,0) NOT NULL,
 	date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	rank NUMBER(4,0) NOT NULL
 
+	CONSTRAINT rnk_chk CHECK(rank < 5001)
 );
 
 --is_current NUMBER(1,0) NOT NULL CONSTRAINT rnk_curr_chk CHECK(is_current = 0 OR is_current = 1)
@@ -122,6 +123,12 @@ CREATE TABLE gg_rank_history
 (
 	rank_id NUMBER(7,0) CONSTRAINT rnk_his_id_pk PRIMARY KEY,
 	rank_player VARCHAR2(25) NOT NULL,
-	date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	rank NUMBER(4,0) NOT NULL
+	rank NUMBER(4,0) NOT NULL,
+	date_time TIMESTAMP NOT NULL,
+
+	CONSTRAINT rnk_his_rnk_chk CHECK(rank < 5001)
 );
+
+CREATE TABLE gg_rank_history
+AS(SELECT * FROM gg_rank
+	WHERE rank_player = 'Taimou');

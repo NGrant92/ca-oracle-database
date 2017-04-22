@@ -1,3 +1,4 @@
+--VALUES(name, role, ability 1, ability 2, ability 3, ability 4, ability_passive, ability_ult1, ability_ult2)
 INSERT ALL
 INTO gg_hero VALUES ('Genji', 'Offense', 'Successive Shuriken', 'Fan of Blades', 'Swift Strike', 'Deflect', 'Cyber-Agility', 'Dragonblade', null)
 INTO gg_hero VALUES ('McCree', 'Offense', 'Peacekeeper', 'Fan the Hammer', 'Combat Roll', 'Flashbang', null, 'Deadeye', null)
@@ -25,6 +26,7 @@ INTO gg_hero VALUES ('Symmetra', 'Support', 'Photon Beam', 'Energy Ball', 'Sentr
 INTO gg_hero VALUES ('Zenyatta', 'Support', 'Orb of Destruction', 'Orb Volley', 'Orb of Harmony', null, null, 'Transcendence', null)
 SELECT * FROM dual;
 
+--VALUES(team_id, facebook, twitter, youtube, website)
 INSERT ALL
 INTO gg_team VALUES ('Cloud9', 'https://www.facebook.com/cloud9/', 'https://twitter.com/cloud9', 'https://www.youtube.com/user/C9ggTV', 'http://cloud9.gg/overwatch', null)
 INTO gg_team VALUES ('EnVyus', 'https://www.facebook.com/TeamEnVyUs/', 'https://twitter.com/TeamEnVyUs', 'https://www.youtube.com/user/TeamEnVyUs', 'https://gg_teamenvyus.com/pages/overwatch', null)
@@ -44,6 +46,7 @@ INTO gg_team VALUES ('Team Liquid', 'https://www.facebook.com/gg_teamliquid/', '
 INTO gg_team VALUES ('Renegades', 'https://www.facebook.com/TeamRNG/', 'https://twitter.com/renegades', 'https://www.youtube.com/c/Renegades', 'hhttps://www.renegadespro.com/pages/overwatch', null)
 SELECT * FROM dual;
 
+--VALUES(username, email, team_id, facebook, twitter, youtube, twitch)
 INSERT ALL
 INTO gg_player VALUES ('Taimou', 'taimouow@gmail.com', 'EnVyus', 'https://www.facebook.com/OFFICIALtaimou/', 'https://twitter.com/EnVy_Taimou', 'https://www.youtube.com/user/Taimouu', 'https://www.twitch.tv/taimoutv')
 INTO gg_player VALUES ('HarryHook', 'harryhookow@gmail.com', 'EnVyus', null, 'https://twitter.com/envy_harryhook', null, 'https://www.twitch.tv/harryhook')
@@ -72,7 +75,7 @@ INTO gg_player VALUES ('BloodyMonday', 'mr-monday@gmail.com', null, null, null, 
 INTO gg_player VALUES ('Frozen', 'frozen@gmail.com', null, null, null, null, null)
 INTO gg_player VALUES ('Kephrii', 'kephkeph@gmail.com', null, null, 'https://twitter.com/Kephrii', 'https://www.youtube.com/user/Kephri1', 'https://www.twitch.tv/kephrii')
 SELECT * FROM dual;
-
+--VALUES(username, team_id, start_date, end_date)
 INSERT ALL
 INTO gg_team_history VALUES ('Harbleu', 'Rogue', '01/06/2016', '09/21/2016')
 INTO gg_team_history VALUES ('Harbleu', 'EnVyus', '02/20/2016', '05/28/2016')
@@ -85,6 +88,7 @@ INTO gg_team_history VALUES ('HarryHook', 'NRG', '04/11/2016', '01/02/2017')
 INTO gg_team_history VALUES ('HarryHook', 'Rogue', '02/22/2016', '03/02/2016')
 SELECT * FROM dual;
 
+--VALUES(hero_stats_id, hero_name)
 INSERT ALL
 INTO gg_hero_stats VALUES (1, 'Genji')
 INTO gg_hero_stats VALUES (2, 'McCree')
@@ -112,6 +116,7 @@ INTO gg_hero_stats VALUES (23, 'Symmetra')
 INTO gg_hero_stats VALUES (24, 'Zenyatta')
 SELECT * FROM dual;
 
+--VALUES = username, hero_name, eliminations, deaths, damage, healing, wins, losses, hero_stats_id, damage_blocked
 INSERT ALL 
 INTO gg_player_hero VALUES ('Mendokusaii', 'McCree', 3100, 2200, 1200045, 0, 371, 200, 2, 0)
 INTO gg_player_hero VALUES ('Frozen', 'Bastion', 2700, 1800, 620045, 0, 300, 200, 8, 0)
@@ -168,11 +173,13 @@ INTO gg_player_hero VALUES ('tictacz', 'Genji', 2800, 2700, 1004200, 0, 320, 60,
 INTO gg_player_hero VALUES ('BloodyMonday', 'Junkrat', 1300, 1400, 7200, 0, 200, 230, 10, 0)
 SELECT * FROM dual;
 
+--(event_id, event_name, date, website, type, venue, county, country, server region, first_prize, second_prize, third_prize)
 INSERT ALL
 INTO gg_event VALUES(100, 'OGN Apex Season 3', '04/28/2017', 'http://www.gosugamers.net/overwatch/events/673-ogn-overwatch-apex-season-3', 'Lan', 'E-Stadium', 'Seoul', 'Korea', null, '$85,630', '$34,250', '$10,275')
 INTO gg_event VALUES(101, 'Overwatch Rumble', '04/18/2017', 'http://rivalcades.com/owrumble.php', 'Online', null, null, null, 'US', '$6,000', '$3,000', '$1,000')
 SELECT * FROM dual;
 
+--VALUES(map_name, country, map_type, objective, team_size)
 INSERT ALL
 INTO gg_map VALUES('Hanamura', 'Japan', 'Capture Point', 'Capture more points on the map than the enemy team.', 6)
 INTO gg_map VALUES('Temple of Anubis', 'Egypt', 'Capture Point', 'Capture more points on the map than the enemy team.', 6)
@@ -190,6 +197,7 @@ INTO gg_map VALUES('Nepal', 'Nepal', 'Control Point', 'To maintain control of mu
 INTO gg_map VALUES('Oasis', 'Iraq', 'Control Point', 'To maintain control of multiple points while fending off the enemy team. Best of 3 or 5 wins', 6)
 SELECT * FROM dual;
 
+--VALUES(event_id, map_name)
 INSERT ALL
 INTO gg_event_map VALUES(100, 'Hanamura')
 INTO gg_event_map VALUES(100, 'Dorado')
@@ -202,4 +210,23 @@ INTO gg_event_map VALUES(101, 'Route 66')
 INTO gg_event_map VALUES(101, 'Kings Row')
 INTO gg_event_map VALUES(101, 'Numbani')
 INTO gg_event_map VALUES(101, 'Lijang Tower')
+SELECT * FROM dual;
+
+--VALUES(rank_id, player_name, rank, timestamp(defaulted))
+INSERT ALL
+INTO gg_rank(rank_id, rank_player, rank) VALUES (201,'Taimou', 4844)
+INTO gg_rank(rank_id, rank_player, rank) VALUES (202,'HarryHook', 4200)
+INTO gg_rank(rank_id, rank_player, rank) VALUES (203,'cocco', 4625)
+INTO gg_rank(rank_id, rank_player, rank) VALUES (204,'chipshajen', 4150)
+INTO gg_rank(rank_id, rank_player, rank) VALUES (205,'INTERNETHULK', 4845)
+INTO gg_rank(rank_id, rank_player, rank) VALUES (206,'Mickie', 4653)
+INTO gg_rank(rank_id, rank_player, rank) VALUES (207,'aKm', 3801)
+INTO gg_rank(rank_id, rank_player, rank) VALUES (208,'SoOn', 4260)
+INTO gg_rank(rank_id, rank_player, rank) VALUES (209,'winz', 3526)
+INTO gg_rank(rank_id, rank_player, rank) VALUES (210,'NiCO', 4444)
+INTO gg_rank(rank_id, rank_player, rank) VALUES (211,'BloodyMonday', 2760)
+INTO gg_rank(rank_id, rank_player, rank) VALUES (212,'tictacz', 3050)
+INTO gg_rank(rank_id, rank_player, rank) VALUES (213,'UnhappyMango', 1800)
+INTO gg_rank(rank_id, rank_player, rank) VALUES (214,'Nyaves', 2345)
+INTO gg_rank(rank_id, rank_player, rank) VALUES (215,'Hoodie', 2432)
 SELECT * FROM dual;
