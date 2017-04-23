@@ -109,21 +109,20 @@ CREATE TABLE gg_event_map
 
 CREATE TABLE gg_rank
 (
-	rank_player VARCHAR2(25) NOT NULL rnk_plr_pk PRIMARY KEY,
-	rank NUMBER(4,0) NOT NULL,
+	rank_player VARCHAR2(25),
+	rank NUMBER(4,0) NOT NULL CONSTRAINT rnk_chk CHECK(rank < 5001),
 	date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	is_current NUMBER(1,0) DEFAULT 1 CONSTRAINT rnk_curr_chk CHECK(is_current = 0 OR is_current = 1),
 
-	CONSTRAINT rnk_chk CHECK(rank < 5001)
+	CONSTRAINT rnk_plr_dt_pk PRIMARY KEY(rank_player, date_time)
 );
 
---is_current NUMBER(1,0) NOT NULL CONSTRAINT rnk_curr_chk CHECK(is_current = 0 OR is_current = 1)
 
 CREATE TABLE gg_rank_history
 (
 	rank_player VARCHAR2(25),
-	rank NUMBER(4,0) NOT NULL,
+	rank NUMBER(4,0) NOT NULL CONSTRAINT rnk_his_rnk_chk CHECK(rank < 5001),
 	date_time TIMESTAMP,
 
-	CONSTRAINT rnk_plr_dt_pk PRIMARY KEY(rank_player, date_time)
-	CONSTRAINT rnk_his_rnk_chk CHECK(rank < 5001)
+	CONSTRAINT rnk_his_plr_dt_pk PRIMARY KEY(rank_player, date_time)
 );
