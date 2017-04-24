@@ -1,3 +1,5 @@
+--a method to streamline the update rank process
+--REFERENCE: https://community.oracle.com/thread/321710
 DECLARE 
 rankUpdate NUMBER(4,0) := 4901;
 player VARCHAR2(25) := 'Taimou';
