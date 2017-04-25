@@ -1,4 +1,6 @@
 --a method to streamline the update rank process
+--if their current rank is equal to the updating rank then
+--nothing will happen, this prevents duplication
 --REFERENCE: https://community.oracle.com/thread/321710
 DECLARE 
 rankUpdate NUMBER(4,0) := 4901;
