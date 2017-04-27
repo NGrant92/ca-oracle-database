@@ -1,4 +1,4 @@
-# ca-oracle-database
+# Overwatch Basic Stats Database
 Work for my Database assignment which involved designing, constructing and scripting a database from scratch. Mine is based around 
 storing information for the game Overwatch. Such information includes: Events, Teams, Players, Heroes, Maps, Hero/Player stats.
 
